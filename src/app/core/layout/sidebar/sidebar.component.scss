@@ -1,5 +1,5 @@
 .sidebar {
-  width: 240px;
+  width: 256px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -15,19 +15,75 @@
   );
 }
 
-
-
-.logo {
+/* LOGO + SOTTOTITOLO */
+.logo-block {
   padding: 0 24px;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 
-  .logo-text {
-    font-size: 20px;
+  .logo-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px; /* NON è un cerchio: è un rounded square */
+    background: rgba(60, 187, 230, 0.854);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-weight: 700;
+    font-size: 18px;
     color: #ffffff;
+    letter-spacing: 0.5px;
+  }
+
+  .logo-text-block {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+  }
+
+  .subtitle {
+    margin-top: 2px;
+    font-size: 11.5px;
+    letter-spacing: 2px;
+    font-weight: 400;
+    color: #C8D0E0;
+    opacity: 0.8;
   }
 }
 
+
+/* SEPARATORE */
+.separator {
+  height: 1px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 0 0 16px 0;
+}
+
+/* TITOLO GRUPPO MENU */
+.menu-group-title {
+  padding: 0 11px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #AAB4C5;
+  opacity: 0.9;
+}
+
+/* MENU */
 .menu {
   list-style: none;
   padding: 0;
@@ -38,22 +94,23 @@
     align-items: center;
     padding: 12px 24px;
     cursor: pointer;
-    color: #b5b5c3;
+    color: #C8D0E0;
     transition: background 0.2s, color 0.2s;
 
     &:hover {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.06);
       color: #ffffff;
     }
 
     &.active {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.12);
       color: #ffffff;
     }
 
     .icon {
       margin-right: 12px;
       font-size: 20px;
+      opacity: 0.85;
     }
 
     .label {
