@@ -5,6 +5,75 @@
     <app-topbar></app-topbar>
 
     <main class="page">
+      <section class="kpi-row">
+        <app-kpi-card
+          *ngFor="let kpi of kpis; trackBy: trackByKpiLabel"
+          [icon]="kpi.icon"
+          [label]="kpi.label"
+          [value]="kpi.value"
+          [trend]="kpi.trend"
+          [trendText]="kpi.trendText"
+          [tone]="kpi.tone"
+          [progress]="kpi.progress">
+        </app-kpi-card>
+      </section>
+
+      <section class="panel">
+        <header class="panel-head">
+          <div class="panel-title-wrap">
+            <h2>Elenco Fatture</h2>
+            <p>Gestione operativa e stato documenti</p>
+          </div>
+
+          <span class="total-chip">{{ invoices.length }} totali</span>
+
+          <div class="panel-actions">
+            <app-search-input placeholder="Cerca fattura o cliente"></app-search-input>
+            <button class="btn-ghost" type="button">Filtri</button>
+            <button class="btn-primary" type="button">Nuova Fattura</button>
+          </div>
+        </header>
+
+        <table class="invoice-table">
+          <thead>
+            <tr>
+              <th>N. fattura</th>
+              <th>Cliente</th>
+              <th>Data</th>
+              <th>Importi</th>
+              <th>Stato</th>
+              <th class="actions-col">Azioni</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let invoice of invoices; trackBy: trackByInvoiceId" [class.selected]="isSelected(invoice.id)">
+              <td>
+                <span class="inv-number">{{ invoice.id }}</span>
+              </td>
+              <td>
+                <div class="client-name">{{ invoice.customer }}</div>
+                <div class="client-vat">{{ invoice.vatNumber }}</div>
+              </td>
+              <td>
+                <span class="inv-date">{{ invoice.date }}</span>
+              </td>
+              <td>
+                <div class="amount-main">{{ invoice.total }}</div>
+                <div class="amount-vat">IVA {{ invoice.vat }} · IMP {{ invoice.taxable }}</div>
+              </td>
+              <td>
+                <app-status-badge [status]="invoice.status"></app-status-badge>
+              </td>
+              <td class="row-actions">
+                <button class="icon-act" type="button" aria-label="Visualizza"><span class="material-icons">visibility</span></button>
+                <button class="icon-act" type="button" aria-label="Modifica"><span class="material-icons">edit</span></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
       <router-outlet></router-outlet>
     </main>
   </div>

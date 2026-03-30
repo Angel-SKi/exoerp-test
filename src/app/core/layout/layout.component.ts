@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+import {
+  DASHBOARD_KPIS,
+  KpiItem,
+  RECENT_INVOICES,
+  InvoiceItem
+} from './mocks/dashboard.mock';
 
 @Component({
   selector: 'app-layout',
@@ -6,5 +12,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent {
+  readonly kpis: KpiItem[] = DASHBOARD_KPIS;
+  readonly invoices: InvoiceItem[] = RECENT_INVOICES;
+  readonly selectedInvoiceId = 'FT-2026-00125';
+
+  trackByKpiLabel(_: number, item: KpiItem): string {
+    return item.label;
+  }
+
+  trackByInvoiceId(_: number, item: InvoiceItem): string {
+    return item.id;
+  }
+
+  isSelected(invoiceId: string): boolean {
+    return invoiceId === this.selectedInvoiceId;
+  }
 
 }
