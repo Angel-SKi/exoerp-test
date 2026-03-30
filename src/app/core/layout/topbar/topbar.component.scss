@@ -1,4 +1,8 @@
 .topbar {
+  position: fixed;
+  top: 0;
+  left: var(--sidebar-w);
+  width: calc(100% - var(--sidebar-w));
   height: var(--topbar-h);
   background: var(--card);
   display: flex;
@@ -6,6 +10,7 @@
   justify-content: space-between;
   padding: 0 var(--spacing-lg-2);
   border-bottom: var(--border-2);
+  z-index: 20;
 }
 
 .left-block {
@@ -82,7 +87,7 @@
 .separator {
   width: 1px;
   height: 26px;
-  background: rgba(60, 80, 180, 0.18);
+  background: var(--border-2-color);
 }
 
 .user-chip {

@@ -1,16 +1,17 @@
 .layout {
-  display: flex;
   width: 100%;
+  min-height: 100vh;
 }
 
 .content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+  margin-left: var(--sidebar-w);
+  width: calc(100% - var(--sidebar-w));
 }
 
 .page {
-  flex: 1;
-  padding: 24px;
-  background: #f5f6fa;
+  margin-top: var(--topbar-h);
+  min-height: calc(100vh - var(--topbar-h));
+  padding: var(--spacing-xl) 30px;
+  background: var(--surface);
+  overflow-y: auto;
 }
