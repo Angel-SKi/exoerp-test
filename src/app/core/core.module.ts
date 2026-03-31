@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { KpiCardComponent } from './layout/ui/kpi-card/kpi-card.component';
 import { StatusBadgeComponent } from './layout/ui/status-badge/status-badge.component';
 import { SearchInputComponent } from './layout/ui/search-input/search-input.component';
+import { InvoiceDetailComponent } from './layout/ui/invoice-detail/invoice-detail.component';
 
 
 
@@ -18,6 +19,7 @@ import { SearchInputComponent } from './layout/ui/search-input/search-input.comp
     KpiCardComponent,
     StatusBadgeComponent,
     SearchInputComponent,
+    InvoiceDetailComponent,
   ],
   imports: [
     CommonModule,

@@ -47,7 +47,7 @@
           </thead>
 
           <tbody>
-            <tr *ngFor="let invoice of invoices; trackBy: trackByInvoiceId" [class.selected]="isSelected(invoice.id)">
+            <tr *ngFor="let invoice of invoices; trackBy: trackByInvoiceId" [class.selected]="isSelected(invoice.id)" (click)="selectInvoice(invoice.id)">
               <td>
                 <span class="inv-number">{{ invoice.id }}</span>
               </td>
@@ -73,6 +73,8 @@
           </tbody>
         </table>
       </section>
+
+      <app-invoice-detail [detail]="selectedInvoice"></app-invoice-detail>
 
       <router-outlet></router-outlet>
     </main>

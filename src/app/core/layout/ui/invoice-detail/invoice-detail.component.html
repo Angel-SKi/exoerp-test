@@ -1,0 +1,85 @@
+<div class="detail-panel" *ngIf="detail">
+
+  <!-- ── 5.1 HEADER ───────────────────────────────────────── -->
+  <header class="detail-header">
+    <div class="deco-ellipse deco-1"></div>
+    <div class="deco-ellipse deco-2"></div>
+
+    <div class="header-main">
+      <span class="inv-id">{{ detail.id }}</span>
+      <span class="inv-customer">{{ detail.customer }}</span>
+    </div>
+
+    <div class="header-metas">
+      <div class="meta-item">
+        <span class="meta-label">Data</span>
+        <span class="meta-value">{{ detail.date }}</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Imponibile</span>
+        <span class="meta-value">{{ detail.taxable }}</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">IVA</span>
+        <span class="meta-value">{{ detail.vat }}</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Totale</span>
+        <span class="meta-value meta-value--big">{{ detail.total }}</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── 5.2 TABELLA RIGHE ────────────────────────────────── -->
+  <div class="section-bar">Righe di Dettaglio</div>
+
+  <table class="lines-table">
+    <thead>
+      <tr>
+        <th>Articolo</th>
+        <th>Descrizione</th>
+        <th class="num-col">Qtà</th>
+        <th class="num-col">Prezzo unit.</th>
+        <th class="num-col">IVA</th>
+        <th class="num-col">Totale</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let line of detail.lines">
+        <td><span class="art-code">{{ line.code }}</span></td>
+        <td>
+          <div class="line-desc">{{ line.description }}</div>
+          <div class="line-unit">{{ line.unit }}</div>
+        </td>
+        <td class="num-col">{{ line.qty }}</td>
+        <td class="num-col">{{ line.price }}</td>
+        <td class="num-col">{{ line.vatPct }}</td>
+        <td class="num-col line-total">{{ line.total }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ── 5.3 FOOTER ───────────────────────────────────────── -->
+  <footer class="detail-footer">
+    <div class="footer-notes">
+      <span class="material-icons notes-icon">info_outline</span>
+      <span>{{ detail.notes }}</span>
+    </div>
+
+    <div class="footer-totals">
+      <div class="total-row">
+        <span class="total-label">Imponibile</span>
+        <span class="total-value">{{ detail.taxable }}</span>
+      </div>
+      <div class="total-row">
+        <span class="total-label">IVA</span>
+        <span class="total-value">{{ detail.vat }}</span>
+      </div>
+      <div class="total-row total-row--grand">
+        <span class="total-label total-label--grand">TOTALE</span>
+        <span class="total-value total-value--grand">{{ detail.total }}</span>
+      </div>
+    </div>
+  </footer>
+
+</div>

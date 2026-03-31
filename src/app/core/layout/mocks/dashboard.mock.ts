@@ -21,6 +21,8 @@ export interface InvoiceItem {
   vat: string;
   total: string;
   status: InvoiceStatus;
+  notes: string;
+  lines: InvoiceLine[];
 }
 
 export const DASHBOARD_KPIS: KpiItem[] = [
@@ -62,6 +64,16 @@ export const DASHBOARD_KPIS: KpiItem[] = [
   }
 ];
 
+export interface InvoiceLine {
+  code: string;
+  description: string;
+  unit: string;
+  qty: number;
+  price: string;
+  vatPct: string;
+  total: string;
+}
+
 export const RECENT_INVOICES: InvoiceItem[] = [
   {
     id: 'FT-2026-00124',
@@ -71,7 +83,28 @@ export const RECENT_INVOICES: InvoiceItem[] = [
     taxable: 'EUR 2.827,87',
     vat: 'EUR 622,13',
     total: 'EUR 3.450,00',
-    status: 'paid'
+    status: 'paid',
+    notes: 'Pagamento ricevuto tramite bonifico SEPA in data 30/03/2026.',
+    lines: [
+      {
+        code: 'SRV-0038',
+        description: 'Canone annuale assistenza premium',
+        unit: 'anno',
+        qty: 1,
+        price: 'EUR 1.850,00',
+        vatPct: '22%',
+        total: 'EUR 2.257,00'
+      },
+      {
+        code: 'INT-0021',
+        description: 'Intervento on-site ottimizzazione processi',
+        unit: 'giorni',
+        qty: 2,
+        price: 'EUR 490,00',
+        vatPct: '22%',
+        total: 'EUR 1.195,60'
+      }
+    ]
   },
   {
     id: 'FT-2026-00125',
@@ -81,7 +114,37 @@ export const RECENT_INVOICES: InvoiceItem[] = [
     taxable: 'EUR 1.622,95',
     vat: 'EUR 357,05',
     total: 'EUR 1.980,00',
-    status: 'pending'
+    status: 'pending',
+    notes: 'Pagamento a 30 giorni dalla data di emissione. RID bancario attivo.',
+    lines: [
+      {
+        code: 'SRV-0041',
+        description: 'Canone mensile piattaforma ERP',
+        unit: 'mese',
+        qty: 1,
+        price: 'EUR 980,00',
+        vatPct: '22%',
+        total: 'EUR 1.195,60'
+      },
+      {
+        code: 'CON-0019',
+        description: 'Consulenza implementazione modulo magazzino',
+        unit: 'ore',
+        qty: 4,
+        price: 'EUR 120,00',
+        vatPct: '22%',
+        total: 'EUR 585,60'
+      },
+      {
+        code: 'LIC-0007',
+        description: 'Licenza add-on reportistica avanzata',
+        unit: 'anno',
+        qty: 1,
+        price: 'EUR 199,00',
+        vatPct: '22%',
+        total: 'EUR 242,78'
+      }
+    ]
   },
   {
     id: 'FT-2026-00126',
@@ -91,7 +154,28 @@ export const RECENT_INVOICES: InvoiceItem[] = [
     taxable: 'EUR 5.090,16',
     vat: 'EUR 1.119,84',
     total: 'EUR 6.210,00',
-    status: 'overdue'
+    status: 'overdue',
+    notes: 'Sollecito inviato il 29/03/2026. Atteso riscontro amministrazione cliente.',
+    lines: [
+      {
+        code: 'ERP-0102',
+        description: 'Setup multi-sede e configurazione workflow approvativi',
+        unit: 'pacchetto',
+        qty: 1,
+        price: 'EUR 3.890,16',
+        vatPct: '22%',
+        total: 'EUR 4.745,99'
+      },
+      {
+        code: 'TRN-0009',
+        description: 'Training utenti area amministrativa',
+        unit: 'ore',
+        qty: 10,
+        price: 'EUR 120,00',
+        vatPct: '22%',
+        total: 'EUR 1.464,00'
+      }
+    ]
   },
   {
     id: 'FT-2026-00127',
@@ -101,6 +185,27 @@ export const RECENT_INVOICES: InvoiceItem[] = [
     taxable: 'EUR 770,49',
     vat: 'EUR 169,51',
     total: 'EUR 940,00',
-    status: 'draft'
+    status: 'draft',
+    notes: 'Bozza in revisione interna prima dell invio al cliente.',
+    lines: [
+      {
+        code: 'SUP-0012',
+        description: 'Supporto remoto area ciclo attivo',
+        unit: 'ore',
+        qty: 5,
+        price: 'EUR 95,00',
+        vatPct: '22%',
+        total: 'EUR 579,50'
+      },
+      {
+        code: 'CFG-0030',
+        description: 'Configurazione report personalizzato vendite',
+        unit: 'attivita',
+        qty: 1,
+        price: 'EUR 295,49',
+        vatPct: '22%',
+        total: 'EUR 360,50'
+      }
+    ]
   }
 ];

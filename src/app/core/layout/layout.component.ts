@@ -14,7 +14,7 @@ import {
 export class LayoutComponent {
   readonly kpis: KpiItem[] = DASHBOARD_KPIS;
   readonly invoices: InvoiceItem[] = RECENT_INVOICES;
-  readonly selectedInvoiceId = 'FT-2026-00125';
+  selectedInvoiceId = 'FT-2026-00125';
 
   trackByKpiLabel(_: number, item: KpiItem): string {
     return item.label;
@@ -26,6 +26,14 @@ export class LayoutComponent {
 
   isSelected(invoiceId: string): boolean {
     return invoiceId === this.selectedInvoiceId;
+  }
+
+  get selectedInvoice(): InvoiceItem {
+    return this.invoices.find((invoice) => invoice.id === this.selectedInvoiceId) ?? this.invoices[0];
+  }
+
+  selectInvoice(invoiceId: string): void {
+    this.selectedInvoiceId = invoiceId;
   }
 
 }
