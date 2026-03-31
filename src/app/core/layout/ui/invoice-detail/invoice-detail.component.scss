@@ -4,6 +4,12 @@
   border-radius: var(--r);
   border: var(--border);
   overflow: hidden;
+  animation: detail-enter 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.anim {
+  opacity: 0;
+  animation: section-enter 0.3s ease forwards;
 }
 
 /* ── 5.1 HEADER ─────────────────────────────────────────────── */
@@ -255,4 +261,28 @@
   font-size: 17px;
   font-weight: 800;
   color: var(--accent);
+}
+
+@keyframes detail-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes section-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

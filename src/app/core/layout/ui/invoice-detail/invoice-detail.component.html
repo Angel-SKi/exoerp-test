@@ -1,7 +1,7 @@
 <div class="detail-panel" *ngIf="detail">
 
   <!-- ── 5.1 HEADER ───────────────────────────────────────── -->
-  <header class="detail-header">
+  <header class="detail-header anim" style="animation-delay: 0s;">
     <div class="deco-ellipse deco-1"></div>
     <div class="deco-ellipse deco-2"></div>
 
@@ -33,7 +33,7 @@
   <!-- ── 5.2 TABELLA RIGHE ────────────────────────────────── -->
   <div class="section-bar">Righe di Dettaglio</div>
 
-  <table class="lines-table">
+  <table class="lines-table anim" style="animation-delay: 0.05s;">
     <thead>
       <tr>
         <th>Articolo</th>
@@ -60,7 +60,7 @@
   </table>
 
   <!-- ── 5.3 FOOTER ───────────────────────────────────────── -->
-  <footer class="detail-footer">
+  <footer class="detail-footer anim" style="animation-delay: 0.1s;">
     <div class="footer-notes">
       <span class="material-icons notes-icon">info_outline</span>
       <span>{{ detail.notes }}</span>

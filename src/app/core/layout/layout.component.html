@@ -28,7 +28,10 @@
           <span class="total-chip">{{ invoices.length }} totali</span>
 
           <div class="panel-actions">
-            <app-search-input placeholder="Cerca fattura o cliente"></app-search-input>
+            <app-search-input
+              placeholder="Cerca fattura o cliente"
+              (searchChange)="onSearchChange($event)">
+            </app-search-input>
             <button class="btn-ghost" type="button">Filtri</button>
             <button class="btn-primary" type="button">Nuova Fattura</button>
           </div>
@@ -47,7 +50,7 @@
           </thead>
 
           <tbody>
-            <tr *ngFor="let invoice of invoices; trackBy: trackByInvoiceId" [class.selected]="isSelected(invoice.id)" (click)="selectInvoice(invoice.id)">
+            <tr *ngFor="let invoice of filteredInvoices; trackBy: trackByInvoiceId" [class.selected]="isSelected(invoice.id)" (click)="selectInvoice(invoice.id)">
               <td>
                 <span class="inv-number">{{ invoice.id }}</span>
               </td>
@@ -74,7 +77,7 @@
         </table>
       </section>
 
-      <app-invoice-detail [detail]="selectedInvoice"></app-invoice-detail>
+      <app-invoice-detail #detailPanelHost [detail]="selectedInvoice"></app-invoice-detail>
 
       <router-outlet></router-outlet>
     </main>
