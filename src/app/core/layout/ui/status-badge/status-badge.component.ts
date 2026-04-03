@@ -10,6 +10,7 @@ type BadgeStatus = 'paid' | 'pending' | 'overdue' | 'draft';
 export class StatusBadgeComponent {
   @Input() status: BadgeStatus = 'draft';
 
+  /** Getter che restituisce l'etichetta testuale localizzata corrispondente allo stato del badge ('paid', 'pending', 'overdue', 'draft'). */
   get label(): string {
     switch (this.status) {
       case 'paid':
